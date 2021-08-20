@@ -1,0 +1,8 @@
+set serveroutput on;
+begin
+idk_user.PR_IDK_DELETE_PACKAGES
+(p_generate_sm_delete_file_in => null,
+            p_keep_any_mapped_data_in =>1,
+            p_count_kts_kas_only_in =>0,
+        p_delete_fact_in => null);
+end;

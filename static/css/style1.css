@@ -1,0 +1,22 @@
+h3 {
+    color: blue;
+}
+
+
+body{
+    background-color: black
+}
+
+
+ .weather
+{
+        
+    width:100%;
+    float: right;
+    overflow: hidden;
+    background-color: white;
+    border: 5px inset rgb(172, 157, 157);
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px #ccc;
+}

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "premium-canyon-323105",
+  "private_key_id": "171191973767d17b46428f13e88376d2ab8f6e38",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCidxLyNQZtqCgH\nOdmEoK+DX8g2esCzCrZ+PpXxb/acS3LBQifPnCXsJyx7/KWcweqIp5pAvWZSJdxO\neU80M5NV+BMq7oEURzymyhqXZ4sxYFP5VEQ7Ds1/A5UPR8oGQ99YQ/AWeWVYawSj\nPNtz4IDkkWHHkWETAqtJNIhGJ05ltEZuhE1trFg03g1dKg+5Qfm2f7nFuNCRF5+X\nOm56ykN16zNxDnO/g4sEb8Uqq3sGSNpXfQiQzwyXQePBWY2D2Xk2yt7cWoUOgQsS\nWlzT302tDvmYhYkNjN5phDvi+GGM52TEEleJ408Kvodm+YUlCGfrCbwu69ZyZomQ\nf1ehB0r/AgMBAAECggEAA0b3oN8k9A1SUWL/WkeLgtDpzv+G55WtvLoyeB5UES8M\nb42QFAYIVc0sfovII3Nd8ce/utKXP8z3trWHvXvU2wUYDeOlwuz08kBdbPRvwF07\nFGp4veA8kPVXimleT+YKmVM1gp6MRs5R16EgpCPBNdsg58+s7588KUvf+9pLII4M\nJlkYtEdbNsjiYm7rAOBt4zuSZyLwVTM50KwBuAGTB0zfcXQSWx3SPMP8YngmyA8R\nhXGK4fDLrbfj+oftmJcnYAmPYiIk6nO0sXpdfisCzY5nVCfN8xR+sU1nanm+U4Ox\nbdhriqEbHlZmSuSaJIM2cQ8kTNjX2XNcKqkPxpBSMQKBgQDagEs7bk0i5RjoNRQU\nCmV2FPO1JK+vv1Y6Zg51WBCIltld4bLKZ03Zl9w62FlwrpN+wboYAhDHYq32soUw\ntq3kDQqkaf4fc/zinw0NHEvQi63T6TZvwo8tgqMOa/0P0y0bxZ0Yai8PmXCugKPA\nI2zeodR6hbIUSqBEkZIoFYn+DQKBgQC+WN/KFQxtDelS/TtFshHP/jbiaQF8MYCF\nW2vM+1vOEQyny96aZbsL79M4g8o++Tz9wt5fz3u617YQ/pTScBMwn7Gfltuc3vJQ\nf+CugBiHejkVspM96hT4+jm6dl6ysTQZckmZ7yrO2TEQzol3VQAMI1WGmeZbFCz5\n23HxQ282OwKBgBIInqz0CJfFss2Pe+2/gepCBm8/7OQjdZlyTOUwdIThdmVCOIBu\nEEXSO9H7gz5CmlfO424R1ZKvOU5wI4AGw8lbrjItsVSlPQzzNZ+MY1F+BcXErMKC\nm1CVRKHvFb7VnhZ5s+KM+P9fmaY9ZcZ45gZl8uR93lnAYwPlw9tdE7uNAoGAMH4D\nxT/HgqDgqDvLNd4/m3VwFg4aSsFxtIet1vLSWJUPXFAbzcnM9SWL8gHhLFnip+NV\nM6NwKhF6WKoCz/mtad3FKpsMJ9LEeK2bV9laZmlE0bpEuKlB3owg2Nf/GBb85t6u\n0YCUr021qkpzyurksDLwPvJGNT3Wl3DIfmZnlrECgYBlQZxeGhIPd6CnuXASHD5q\n0xNjSFq406fZHG0ahRQzu0id7rtmrOmNRrLCC0rqC44d05ltvj6A3SCz2c0RySMQ\nGIOdcd+A3wjExmQ7pYLHKL/iWzu85NLI4TrhYFxuYI3i1eJz1dWtxjiuHL3OiGnt\nmL5yyHIW2p69Lz0kqZM3vg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "yumikee@premium-canyon-323105.iam.gserviceaccount.com",
+  "client_id": "112196691209190931664",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yumikee%40premium-canyon-323105.iam.gserviceaccount.com"
+}
