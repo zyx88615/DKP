@@ -34,7 +34,6 @@ def auth_required(f):
 	return decorated
 
 @app.route('/')
-@auth_required
 def my_form():
     SERVICE_ACCOUNT_FILE = 'key.json'
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -68,7 +67,6 @@ def my_form():
     return render_template("index.html" , column_names=df2.columns.values, row_data=list(df2.values.tolist()),
                            link_column="Player", zip=zip)
 @app.route("/", methods=['POST', 'GET'])
-@auth_required
 def index():
     error = None
     if request.method == 'POST':
@@ -107,6 +105,18 @@ def index():
             playerclass = request.form['kts and kas']
             if playerclass == 'All':
                 df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
+            elif playerclass == 'WarriorRogueT3':
+                df2 = df2[(df2['Class'] == 'Warrior')|(df2['Class'] == 'Rogue') ]
+                df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
+            elif playerclass == 'PaladinDruidHunterT3':
+                df2 = df2[(df2['Class'] == 'Paladin')|(df2['Class'] == 'Hunter') |(df2['Class'] == 'Druid')]
+                df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
+            elif playerclass == 'MageWarlockPriestT3':
+                df2 = df2[(df2['Class'] == 'Mage')|(df2['Class'] == 'Warlock') |(df2['Class'] == 'Priest')]
+                df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
+            elif playerclass == 'Healer Competition':
+                df2 = df2[(df2['Class'] == 'Druid')|(df2['Class'] == 'Paladin') |(df2['Class'] == 'Priest')]
+                df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)   
             else:    
                 df2 = df2[(df2['Class'] == playerclass)]
                 df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
@@ -165,44 +175,6 @@ def html_table():
 
     dfmain = df2
 
-     #   return redirect(url_for('uploaded_file4',
-      #                      filename=file1))
-    
-    # if request.method == 'POST':
-    #     # check if the post request has the file part
-    #     if 'file' not in request.files:
-    #         flash('No file part')
-    #         return redirect("delete")
-    #     file = request.files['file']
-    #     text = request.form['text']
-    #     text1 = request.form['text1']
-    #     text2 = request.form['text2']
-	#     # if user does not select file, browser also
-    #     # submit an empty part without filename
-    #     if file.filename == '':
-    #         flash('No selected file')
-    #         return redirect(request.url)
-        # if file and allowed_file(file.filename):
-        #     try:
-        #         text = request.form['text']
-        #         text1 = request.form['text1']
-        #         text2 = request.form['text2']
-        #         textD = request.form['textD']
-
-        #         filename = secure_filename(file.filename)
-        #         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        #         df = pd.read_excel('static/uploads/DPMR{}'.format(textD))
-        #         # new_filename = filename[:-4] + "txt"
-        #         if text
-        #         delete_n = text
-        #         delete_n1 = text1
-        #         delete_n2 = text2
-        #         df1 = df[(df["Sdh Unit Nbr"]!=delete_n)&(df["Sdh Unit Nbr"]!=delete_n1)&(df["Sdh Unit Nbr"]!=delete_n2)]
-        #         df1.to_csv("static/uploads/"+new_filename,sep = '|',line_terminator='\r\n',index=False, header=False)
-        #         return redirect(url_for('uploaded_file4',
-        #                                 filename=new_filename))
-    # except Exception as e:
-    #     return render_template('error.html', error=error)
     df = pd.DataFrame({'Patient Name': ["Some name", "Another name"],
                        "Patient ID": [123, 456],
                        "Misc Data Point": [8, 53]})
