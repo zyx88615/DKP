@@ -117,6 +117,9 @@ def index():
             elif playerclass == 'Healer Competition':
                 df2 = df2[(df2['Class'] == 'Druid')|(df2['Class'] == 'Paladin') |(df2['Class'] == 'Priest')]
                 df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)   
+            elif playerclass == 'Caster DPS Competition':
+                df2 = df2[(df2['Class'] == 'Mage')|(df2['Class'] == 'Warlock') ]
+                df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
             else:    
                 df2 = df2[(df2['Class'] == playerclass)]
                 df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
