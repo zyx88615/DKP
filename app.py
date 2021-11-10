@@ -56,7 +56,7 @@ def my_form():
     # Call the Sheets API
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range="DKP!a4:c100").execute()
+                                range="DKP!a4:c200").execute()
 
 
     df = pd.DataFrame.from_records(result, columns=['values'])
@@ -92,7 +92,7 @@ def index():
         # Call the Sheets API
         sheet = service.spreadsheets()
         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                    range="DKP!a4:c100").execute()
+                                    range="DKP!a4:c200").execute()
 
 
         df = pd.DataFrame.from_records(result, columns=['values'])
@@ -168,7 +168,7 @@ def html_table():
     # Call the Sheets API
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range="DKP!a4:c100").execute()
+                                range="DKP!a4:c200").execute()
 
 
     df = pd.DataFrame.from_records(result, columns=['values'])
