@@ -56,11 +56,11 @@ def my_form():
     # Call the Sheets API
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range="DKP!a4:c200").execute()
+                                range="DKP!a4:D200").execute()
 
 
     df = pd.DataFrame.from_records(result, columns=['values'])
-    df2= pd.DataFrame(df["values"].to_list(), columns=['Player', 'Total DKP','Class'])
+    df2= pd.DataFrame(df["values"].to_list(), columns=['Player', 'Total DKP','Next Week Decay','Class'])
     df2["Total DKP"] = pd.to_numeric(df2["Total DKP"])
     df2=df2.sort_values(by=['Total DKP','Player'], ascending=False)
 
@@ -176,8 +176,9 @@ def html_table():
 
 
     df = pd.DataFrame.from_records(result, columns=['values'])
-    df2= pd.DataFrame(df["values"].to_list(), columns=['Player', 'Total DKP','Class'])
+    df2= pd.DataFrame(df["values"].to_list(), columns=['Player', 'Total DKP','Next Week Decay','Class'])
     df2["Total DKP"] = pd.to_numeric(df2["Total DKP"])
+    df2["Next Week Decay"] = pd.to_numeric(df2["Next Week Decay"])
 
 
     dfmain = df2
