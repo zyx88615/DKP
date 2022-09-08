@@ -224,7 +224,128 @@ def uploaded_file4(filename):
 def upload_file5():
     return render_template("error.html")
 
+@app.route('/Lootdis')
+def my_form2():
+    SERVICE_ACCOUNT_FILE = 'key.json'
+    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+    credentials = None
+    credentials = service_account.Credentials.from_service_account_file(
+            SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
+
+
+    # If modifying these scopes, delete the file token.json.
+
+    # The ID and range of a sample spreadsheet.
+    SAMPLE_SPREADSHEET_ID = '1PmzgBadfqBEzlDH5hBfXqe61z0QPp7VsUoUFV6cD-do'
+
+    
+
+    service = build('sheets', 'v4', credentials=credentials)
+
+
+    # Call the Sheets API
+    sheet = service.spreadsheets()
+    sheet = service.spreadsheets()
+    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range='Loot!A1:D4000').execute()
+
+    df = pd.DataFrame.from_records(result, columns=['values'])
+    df2= pd.DataFrame(df["values"].to_list(), columns=['Date', 'Player','Item','DKP'])
+    df3=df2.sort_values(by=['DKP'],ascending=False )
+    df3['DKP'] = pd.to_numeric(df3['DKP'], errors='coerce')
+    df3 = df3.fillna(0)
+    df3=df3.sort_values(by=['DKP'],ascending=False )
+    df3['DKP'] =df3['DKP'].astype(int)
+    df3 = df3.replace(['DFT'],'Drake Fang Talisman')
+    df3 = df3.replace(['GOA'],'Gauntlets of Annihilation')
+    df3 = df3.replace(['Gressil, Dawn of RUin'],'Gressil, Dawn of Ruin')
+    df3 = df3.replace(['Restrained Essence of Sapphiron'],'The Restrained Essence of Sapphiron')
+    df3 = df3.replace(['rejuv gem'],'Rejuvenating Gem')
+    df3 = df3.replace(['Rejuvination Gem'],'Rejuvenating Gem')
+    df3 = df3.replace(['QSR'],'Quick Strike Ring')
+    df3 = df3.replace(['CTS'],'Chromatically Tempered Sword')
+    df3 = df3.replace(['Kiss of the SPider'],'Kiss of the Spider')
+    df3 = df3.replace(['Band of Unnatural FOrces'],'Band of Unnatural Forces')
+    df3 = df3.replace(['Band of Unnatureal'],'Band of Unnatural Forces')
+    df3 = df3.replace(['eyestalk waist cord'],'Eyestalk Waist Cord')
+    df3 = df3.replace(['hammer of the twisting nether'],'Hammer of the Twisting Nether')
+    df3 = df3.replace(['DOOMFINGER'],'Doomfinger')
+    df3 = df3.replace(['Badge of the swarmguard'],'Badge of the Swarmguard')
+    df3 = df3.replace(['Hammert of the Twisting Nether'],'Hammer of the Twisting Nether')
+    df3 = df3.replace(['Rejuvinating Gem'],'Rejuvenating Gem')
+
+    return render_template("Lootdis.html" , column_names=df3.columns.values, row_data=list(df3.values.tolist()),
+                           link_column="Player", zip=zip)
+
+
+@app.route('/Lootdis', methods=['GET', 'POST'])
+def loot5():
+    error = None
+    if request.method == 'POST':
+        
+        SERVICE_ACCOUNT_FILE = 'key.json'
+        SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+        credentials = None
+        credentials = service_account.Credentials.from_service_account_file(
+                SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
+
+
+        # If modifying these scopes, delete the file token.json.
+
+        # The ID and range of a sample spreadsheet.
+        SAMPLE_SPREADSHEET_ID = '1PmzgBadfqBEzlDH5hBfXqe61z0QPp7VsUoUFV6cD-do'
+        
+
+        service = build('sheets', 'v4', credentials=credentials)
+
+
+        # Call the Sheets API
+        sheet = service.spreadsheets()
+        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range='Loot!A1:D4000').execute()
+
+
+        df = pd.DataFrame.from_records(result, columns=['values'])
+        df2= pd.DataFrame(df["values"].to_list(), columns=['Date', 'Player','Item','DKP'])
+        df3=df2.sort_values(by=['DKP'],ascending=False )
+        df3['DKP'] = pd.to_numeric(df3['DKP'], errors='coerce')
+        df3 = df3.fillna(0)
+        df3=df3.sort_values(by=['DKP'],ascending=False )
+        df3['DKP'] =df3['DKP'].astype(int)
+        df3 = df3.replace(['DFT'],'Drake Fang Talisman')
+        df3 = df3.replace(['GOA'],'Gauntlets of Annihilation')
+        df3 = df3.replace(['Gressil, Dawn of RUin'],'Gressil, Dawn of Ruin')
+        df3 = df3.replace(['Restrained Essence of Sapphiron'],'The Restrained Essence of Sapphiron')
+        df3 = df3.replace(['rejuv gem'],'Rejuvenating Gem')
+        df3 = df3.replace(['Rejuvination Gem'],'Rejuvenating Gem')
+        df3 = df3.replace(['QSR'],'Quick Strike Ring')
+        df3 = df3.replace(['CTS'],'Chromatically Tempered Sword')
+        df3 = df3.replace(['Kiss of the SPider'],'Kiss of the Spider')
+        df3 = df3.replace(['Band of Unnatural FOrces'],'Band of Unnatural Forces')
+        df3 = df3.replace(['Band of Unnatureal'],'Band of Unnatural Forces')
+        df3 = df3.replace(['eyestalk waist cord'],'Eyestalk Waist Cord')
+        df3 = df3.replace(['hammer of the twisting nether'],'Hammer of the Twisting Nether')
+        df3 = df3.replace(['DOOMFINGER'],'Doomfinger')
+        df3 = df3.replace(['Badge of the swarmguard'],'Badge of the Swarmguard')
+        df3 = df3.replace(['Hammert of the Twisting Nether'],'Hammer of the Twisting Nether')
+        df3 = df3.replace(['Rejuvinating Gem'],'Rejuvenating Gem')
+
+        if request.form['submit_button'] == 'Submit':
+            playerclass = request.form['kts and kas']
+            if playerclass == 'All':
+                df3=df3.sort_values(by=['DKP'], ascending=False)
+      
+            else:    
+                df3 = df3[(df3['Item'] == playerclass)]
+                df3=df3.sort_values(by=['DKP'], ascending=False)
+       
+            
+        return render_template("Lootdis.html" , column_names=df3.columns.values, row_data=list(df3.values.tolist()),
+                           link_column="Player", zip=zip)
+
+    """Return the homepage."""
 
 
 if __name__ == '__main__':
