@@ -274,7 +274,8 @@ def my_form2():
     df3 = df3.replace(['Badge of the swarmguard'],'Badge of the Swarmguard')
     df3 = df3.replace(['Hammert of the Twisting Nether'],'Hammer of the Twisting Nether')
     df3 = df3.replace(['Rejuvinating Gem'],'Rejuvenating Gem')
-
+    df3 = df3.replace(['the hungering cold'],'The Hungering Cold')
+	
     return render_template("Lootdis.html" , column_names=df3.columns.values, row_data=list(df3.values.tolist()),
                            link_column="Player", zip=zip)
 
@@ -331,6 +332,7 @@ def loot5():
         df3 = df3.replace(['Badge of the swarmguard'],'Badge of the Swarmguard')
         df3 = df3.replace(['Hammert of the Twisting Nether'],'Hammer of the Twisting Nether')
         df3 = df3.replace(['Rejuvinating Gem'],'Rejuvenating Gem')
+        df3 = df3.replace(['the hungering cold'],'The Hungering Cold')
 
         if request.form['submit_button'] == 'Submit':
             playerclass = request.form['kts and kas']
